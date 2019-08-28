@@ -41,7 +41,7 @@ function turn(squareId, player) {
 	if(player == "O") {
 		setTimeout(function(){
 			document.getElementById(squareId).innerText = player;
-		  }, 800);
+		  }, 700);
 	} else if(player == "X") {
 		document.getElementById(squareId).innerText = player;
 	}
@@ -86,7 +86,7 @@ function declareWinner(who) {
 		} else if(who == "Tie Game!") {
 			document.querySelector(".endgame").style.backgroundColor = "rgb(0,128,0, .8)";
 		} 
-	  }, 1000);
+	  }, 100);
 }
 
 function emptySquares() {
