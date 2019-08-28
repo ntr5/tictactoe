@@ -41,7 +41,7 @@ function turn(squareId, player) {
 	if(player == "O") {
 		setTimeout(function(){
 			document.getElementById(squareId).innerText = player;
-		  }, 900);
+		  }, 800);
 	} else if(player == "X") {
 		document.getElementById(squareId).innerText = player;
 	}
