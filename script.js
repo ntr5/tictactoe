@@ -19,7 +19,10 @@ function startGame() {
 	document.querySelector(".endgame").style.display = "none";
 	document.querySelector("button").style.display = "none";
 	document.querySelector("h3").style.display = "block";
+<<<<<<< HEAD
 	document.querySelector(".who").innerText = "Click to begin";
+=======
+>>>>>>> 8e204755945b2e81f4ef70841aa4e872229b8d90
 	origBoard = Array.from(Array(9).keys());
 	for (var i = 0; i < squares.length; i++) {
 		squares[i].innerText = '';
@@ -29,6 +32,10 @@ function startGame() {
 }
 
 function turnClick(square) {
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 8e204755945b2e81f4ef70841aa4e872229b8d90
 	document.querySelector("h3").style.display = "none";
 	if (typeof origBoard[square.target.id] == 'number') {
 		turn(square.target.id, huPlayer);
@@ -38,12 +45,25 @@ function turnClick(square) {
 
 function turn(squareId, player) {
 	origBoard[squareId] = player;
+<<<<<<< HEAD
 	if(player == "O") {
 		setTimeout(function(){
 			document.getElementById(squareId).innerText = player;
 		  }, 900);
 	} else if(player == "X") {
 		document.getElementById(squareId).innerText = player;
+=======
+	
+	// console.log(player);
+	if(player == "O") {
+		setTimeout(function(){
+			document.querySelector(".who").innerText = "Computer";
+			document.getElementById(squareId).innerText = player;
+		  }, 1000);
+	} else if(player == "X") {
+		document.getElementById(squareId).innerText = player;
+		document.querySelector(".who").innerText = "YOU";
+>>>>>>> 8e204755945b2e81f4ef70841aa4e872229b8d90
 	}
 	let gameWon = checkWin(origBoard, player)
 	if (gameWon) gameOver(gameWon)
@@ -67,7 +87,12 @@ function gameOver(gameWon) {
 		setTimeout(function() {
 			document.getElementById(index).style.backgroundColor =
 			gameWon.player == huPlayer ? "blue" : "red";
+<<<<<<< HEAD
 		}, 1200);
+=======
+		}, 1000);
+		
+>>>>>>> 8e204755945b2e81f4ef70841aa4e872229b8d90
 	}
 	for (var i = 0; i < squares.length; i++) {
 		squares[i].removeEventListener('click', turnClick, false);
@@ -81,12 +106,21 @@ function declareWinner(who) {
 		document.querySelector(".endgame").style.display = "block";
 		document.querySelector("button").style.display = "block";
 		document.querySelector(".endgame .text").innerText = who;
+<<<<<<< HEAD
 		if(who == "You lose.") {
 			document.querySelector(".endgame").style.backgroundColor = "rgb(255,0,0, 0.8)";
 		} else if(who == "Tie Game!") {
 			document.querySelector(".endgame").style.backgroundColor = "rgb(0,128,0, .8)";
 		} 
 	  }, 1000);
+=======
+		if(who == "Tie Game!") {
+			document.querySelector(".endgame").style.backgroundColor = "rgb(0,128,0, .8)";
+		} else if(who == "You lose.") {
+			document.querySelector(".endgame").style.backgroundColor = "rgb(255,0,0, 0.8)";
+		}
+	  }, 1300);
+>>>>>>> 8e204755945b2e81f4ef70841aa4e872229b8d90
 }
 
 function emptySquares() {
@@ -94,6 +128,10 @@ function emptySquares() {
 }
 
 function bestSpot() {
+<<<<<<< HEAD
+=======
+	// return setTimeout(minimax(origBoard, aiPlayer).index, 2000);
+>>>>>>> 8e204755945b2e81f4ef70841aa4e872229b8d90
 	return minimax(origBoard, aiPlayer).index;
 }
 
