@@ -67,7 +67,7 @@ function gameOver(gameWon) {
 		setTimeout(function() {
 			document.getElementById(index).style.backgroundColor =
 			gameWon.player == huPlayer ? "blue" : "red";
-		}, 1200);
+		}, 200);
 	}
 	for (var i = 0; i < squares.length; i++) {
 		squares[i].removeEventListener('click', turnClick, false);
