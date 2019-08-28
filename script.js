@@ -19,6 +19,7 @@ function startGame() {
 	document.querySelector(".endgame").style.display = "none";
 	document.querySelector("button").style.display = "none";
 	document.querySelector("h3").style.display = "block";
+	document.querySelector(".who").innerText = "Click to begin";
 	origBoard = Array.from(Array(9).keys());
 	for (var i = 0; i < squares.length; i++) {
 		squares[i].innerText = '';
@@ -28,7 +29,6 @@ function startGame() {
 }
 
 function turnClick(square) {
-	
 	document.querySelector("h3").style.display = "none";
 	if (typeof origBoard[square.target.id] == 'number') {
 		turn(square.target.id, huPlayer);
@@ -38,16 +38,12 @@ function turnClick(square) {
 
 function turn(squareId, player) {
 	origBoard[squareId] = player;
-	
-	// console.log(player);
 	if(player == "O") {
 		setTimeout(function(){
-			document.querySelector(".who").innerText = "Computer";
 			document.getElementById(squareId).innerText = player;
-		  }, 1000);
+		  }, 900);
 	} else if(player == "X") {
 		document.getElementById(squareId).innerText = player;
-		document.querySelector(".who").innerText = "YOU";
 	}
 	let gameWon = checkWin(origBoard, player)
 	if (gameWon) gameOver(gameWon)
@@ -71,8 +67,7 @@ function gameOver(gameWon) {
 		setTimeout(function() {
 			document.getElementById(index).style.backgroundColor =
 			gameWon.player == huPlayer ? "blue" : "red";
-		}, 1000);
-		
+		}, 1200);
 	}
 	for (var i = 0; i < squares.length; i++) {
 		squares[i].removeEventListener('click', turnClick, false);
@@ -86,12 +81,12 @@ function declareWinner(who) {
 		document.querySelector(".endgame").style.display = "block";
 		document.querySelector("button").style.display = "block";
 		document.querySelector(".endgame .text").innerText = who;
-		if(who == "Tie Game!") {
-			document.querySelector(".endgame").style.backgroundColor = "rgb(0,128,0, .8)";
-		} else if(who == "You lose.") {
+		if(who == "You lose.") {
 			document.querySelector(".endgame").style.backgroundColor = "rgb(255,0,0, 0.8)";
-		}
-	  }, 1300);
+		} else if(who == "Tie Game!") {
+			document.querySelector(".endgame").style.backgroundColor = "rgb(0,128,0, .8)";
+		} 
+	  }, 1000);
 }
 
 function emptySquares() {
@@ -99,7 +94,6 @@ function emptySquares() {
 }
 
 function bestSpot() {
-	// return setTimeout(minimax(origBoard, aiPlayer).index, 2000);
 	return minimax(origBoard, aiPlayer).index;
 }
 
