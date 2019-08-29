@@ -81,7 +81,8 @@ function declareWinner(who) {
 		if(who == "You lose.") {
 			document.querySelector(".endgame").style.backgroundColor = "rgb(226, 0, 0, .8)";
 		} else if(who == "Tie Game!") {
-			document.querySelector(".endgame").style.backgroundColor = "rgb(0, 151, 60, .8)";
+			// document.querySelector(".endgame").style.backgroundColor = "rgb(0, 151, 60, .8)";
+			document.querySelector(".endgame").style.backgroundColor = "rgb(0, 128, 0, .8)";
 		} 
 	  }, 200);
 }
