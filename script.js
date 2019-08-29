@@ -41,7 +41,7 @@ function turn(squareId, player) {
 	if(player == "O") {
 		setTimeout(function(){
 			document.getElementById(squareId).innerText = player;
-		  }, 700);
+		  }, 500);
 	} else if(player == "X") {
 		document.getElementById(squareId).innerText = player;
 	}
@@ -50,8 +50,7 @@ function turn(squareId, player) {
 }
 
 function checkWin(board, player) {
-	let plays = board.reduce((a, e, i) =>
-		(e === player) ? a.concat(i) : a, []);
+	let plays = board.reduce((a, e, i) => (e === player) ? a.concat(i) : a, []);
 	let gameWon = null;
 	for (let [index, win] of winCombos.entries()) {
 		if (win.every(elem => plays.indexOf(elem) > -1)) {
@@ -64,10 +63,8 @@ function checkWin(board, player) {
 
 function gameOver(gameWon) {
 	for (let index of winCombos[gameWon.index]) {
-		setTimeout(function() {
-			document.getElementById(index).style.backgroundColor =
-			gameWon.player == huPlayer ? "blue" : "red";
-		}, 200);
+		document.getElementById(index).style.backgroundColor = 
+			gameWon.player == huPlayer ? "green" : "red";
 	}
 	for (var i = 0; i < squares.length; i++) {
 		squares[i].removeEventListener('click', turnClick, false);
@@ -82,11 +79,11 @@ function declareWinner(who) {
 		document.querySelector("button").style.display = "block";
 		document.querySelector(".endgame .text").innerText = who;
 		if(who == "You lose.") {
-			document.querySelector(".endgame").style.backgroundColor = "rgb(255,0,0, 0.8)";
+			document.querySelector(".endgame").style.backgroundColor = "rgb(226, 0, 0, .8)";
 		} else if(who == "Tie Game!") {
-			document.querySelector(".endgame").style.backgroundColor = "rgb(0,128,0, .8)";
+			document.querySelector(".endgame").style.backgroundColor = "rgb(0, 151, 60, .8)";
 		} 
-	  }, 100);
+	  }, 200);
 }
 
 function emptySquares() {
@@ -100,10 +97,11 @@ function bestSpot() {
 function checkTie() {
 	if (emptySquares().length == 0) {
 		for (var i = 0; i < squares.length; i++) {
-			squares[i].style.backgroundColor = "green";
+			squares[i].style.backgroundColor = "#006441";
 			squares[i].removeEventListener('click', turnClick, false);
 		}
-		declareWinner("Tie Game!")
+		
+		declareWinner("Tie Game!");
 		return true;
 	}
 	return false;

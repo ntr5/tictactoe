@@ -92,7 +92,7 @@ body {
 }
 
 #board .square.winner {
-    background-color: #EB4D4D;
+    background-color: #00b35a;
 }
 
 h3 {
@@ -127,7 +127,10 @@ button
     /* color: #555; */
     color: #f7f7f7;
     background: none;
-    background-color: rgb(0, 0, 255, .8);
+    /* background-color: rgb(0, 77, 154, .8); */
+    /* background-color: rgb(0, 103, 205, .8); */
+    background-color: rgb(0, 90, 180, .8);
+    
     border: none;
     border-radius: 5px;
     font-family: Lato;
